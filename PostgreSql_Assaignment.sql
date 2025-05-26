@@ -24,15 +24,6 @@ CREATE Table sightings (
     FOREIGN KEY (ranger_id) REFERENCES rangers (ranger_id),
     FOREIGN KEY (species_id) REFERENCES species (species_id)
 );
-
-DROP Table rangers;
-DROP Table species;
-DROP Table sightings;
-
-
-SELECT * from rangers
-
-
 --insert data of rangers table
 INSERT INTO
     rangers (name, region)
@@ -157,5 +148,4 @@ FROM sightings
 --Problem:9
 DELETE FROM rangers WHERE ranger_id IN (SELECT ranger_id from rangers LEFT JOIN sightings USING(ranger_id)
 WHERE sightings.ranger_id is NULL);
-
 
